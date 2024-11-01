@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ley</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-image: url('https://media.ultimate-manga.com/wallpapers/manga-fond-ecran-nagi.jpg'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-height: 70vh;
+      overflow-y: scroll;
+      padding: 10px;
+      width: 100%;
+      border: 2px solid #ddd;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+  <!-- Header Section -->
+  <header class="flex justify-between items-center p-4">
+    <!-- Navigation Links -->
+    <div class="flex space-x-8">
+      <a href="index.html" class="text-lg hover:underline">HOME</a>
+      <a href="index2.html" class="text-lg hover:underline">ABOUT</a>
+      <a href="index3.html" class="text-lg hover:underline">FAV</a>
+    </div>
+
+    <!-- Social Media Icons on the Right -->
+    <div class="flex space-x-4">
+      <a href="https://www.instagram.com/laylanrls?igsh=MzRlODBiNWFlZA==" target="_blank">
+        <i class="fab fa-instagram text-white text-lg"></i>
+      </a>
+      <a href="https://open.spotify.com/user/31cyddarw4rpptwnx6d75qqaht5a?si=Nn0Y4fQxQXeoBfjzjQmthw" target="_blank">
+        <i class="fab fa-spotify text-white text-lg"></i>
+      </a>
+      <a href="#" target="_blank">
+        <i class="fab fa-youtube text-white text-lg"></i>
+      </a>
+      <a href="https://www.tiktok.com/@leeyarl?_t=8qpo6D58PBI&_r=1" target="_blank">
+        <i class="fab fa-tiktok text-white text-lg"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-4">Only Leya</h1>
+
+    <!-- Gallery Section -->
+    <div class="gallery mx-auto">
+      <img src="1.jpg" alt="Photo 1" class="rounded-lg object-cover">
+      <img src="2.jpg" alt="Photo 2" class="rounded-lg object-cover">
+      <img src="3.jpg" alt="Photo 3" class="rounded-lg object-cover">
+      <img src="5.jpg" alt="Photo 4" class="rounded-lg object-cover">
+      <img src="9.jpg" alt="Photo 5" class="rounded-lg object-cover">
+      <img src="10.jpg" alt="Photo 6" class="rounded-lg object-cover">
+      <img src="11.jpg" alt="Photo 7" class="rounded-lg object-cover">
+      <img src="12.jpg" alt="Photo 8" class="rounded-lg object-cover">
+      <img src="13.jpg" alt="Photo 9" class="rounded-lg object-cover">
+    </div>
+
+    <h2 class="text-2xl font-bold mt-8 mb-4"></h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-gray-800 p-4 rounded-lg flex items-center">
+        <p class="flex-1">My star</p>
+        <i class="fas fa-star text-red-500"></i>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg flex items-center">
+        <p class="flex-1">My comfort</p>
+        <i class="fas fa-handshake text-pink-500"></i>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg flex items-center">
+        <p class="flex-1">My first experience</p>
+        <i class="fas fa-heart text-red-500"></i>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg flex items-center">
+        <p class="flex-1">My biggest supporter</p>
+        <i class="fas fa-tv text-pink-500"></i>
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-8">
+      <a href="index4.html" class="bg-red-600 text-white py-2 px-4 rounded-full">click</a>
+  </div>  
+
+    <div class="max-w-2xl mx-auto p-4 mt-8">
+      <h1 class="text-3xl font-bold mb-4">About Leya</h1>
+      <div class="space-y-2">
+        <div class="bg-gray-800 p-4 rounded flex justify-between items-center cursor-pointer" onclick="toggleAnswer('answer1')">
+          <span>Who is Leya?</span>
+          <i class="fas fa-plus" id="icon1"></i>
+        </div>
+        <div class="bg-gray-800 p-4 rounded hidden" id="answer1">
+          <p>she is not just any girl, she's my everything.</p>
+        </div>
+
+        <div class="bg-gray-800 p-4 rounded flex justify-between items-center cursor-pointer" onclick="toggleAnswer('answer2')">
+          <span>Why i love her?</span>
+          <i class="fas fa-plus" id="icon2"></i>
+        </div>
+        <div class="bg-gray-800 p-4 rounded hidden" id="answer2">
+          <p>no reason.</p>
+        </div>
+
+        <div class="bg-gray-800 p-4 rounded flex justify-between items-center cursor-pointer" onclick="toggleAnswer('answer3')">
+          <span>Putting her first</span>
+          <i class="fas fa-plus" id="icon3"></i>
+        </div>
+        <div class="bg-gray-800 p-4 rounded hidden" id="answer3">
+          <p>even though a part of me hoped we'd end up together, what matters most to me is your happiness, even if it means i'm not the one by your side, i'd give anything to see you truly happy, whether that's with me or someone else, loving you this deeply might make me a fool, but my heart belongs to you, and i want nothing more than for you to find the joy and love you deserve.</p>
+        </div>
+
+        <div class="bg-gray-800 p-4 rounded flex justify-between items-center cursor-pointer" onclick="toggleAnswer('answer4')">
+          <span>Proud</span>
+          <i class="fas fa-plus" id="icon4"></i>
+        </div>
+        <div class="bg-gray-800 p-4 rounded hidden" id="answer4">
+          <p>im so proud of u my love, im proud that u always trying everyday to get up and get things done, u've done so much and u always doing great there, u deserve so much love and u deserve the world, i know deeply in ur heart u are exhausted to keep going but u still pretend like u strong enough to go through it, well im here now and i'll be always pray for u that one day everything will get better and u are gonna be okay soon, because u have me right now and u are not all alone anymore okay? i always be by ur side and keep gives u so much love as the way u deserve it, i will treat u and love u better and in the right way.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      function toggleAnswer(answerId) {
+        const answer = document.getElementById(answerId);
+        const icon = document.getElementById('icon' + answerId.charAt(answerId.length - 1));
+        
+        if (answer.classList.contains('hidden')) {
+          answer.classList.remove('hidden');
+          icon.classList.remove('fa-plus');
+          icon.classList.add('fa-times');
+        } else {
+          answer.classList.add('hidden');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-plus');
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
