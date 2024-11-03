@@ -8,25 +8,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+        
         body {
             background-color: #2b1b0e;
             color: #ffffff;
             font-family: 'Courier Prime', monospace;
+            overflow-y: auto;
         }
+        
         .header {
             background-color: #000000;
             font-family: 'Roboto', sans-serif;
         }
-        .video-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
+        
+        .birthday-mode .confetti {
+            display: block;
         }
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        
+        .confetti {
+            position: absolute;
+            display: none;
+            width: 5px;
+            height: 5px;
+            background-color: #ff5e5e;
+            border-radius: 50%;
+            animation: fall 3s infinite;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
     </style>
 </head>
@@ -51,14 +63,20 @@
         </div>
     </header>
 
-    <div class="flex items-center justify-center min-h-screen">
-        <div class="text-center">
+    <div class="relative">
+        <div class="flex justify-center mt-5">
+            <button onclick="toggleBirthdayMode()" class="bg-pink-600 text-white p-2 rounded-full">
+                <i class="fas fa-birthday-cake"></i> click
+            </button>
+        </div>
+
+        <div class="text-center mt-8">
             <h1 class="text-5xl font-bold mb-8 text-white">Leya Fav</h1>
-            <ol class="text-xl space-y-2 text-red">
+            <ol class="text-xl space-y-2 text-red-600">
                 <li>1. her love everything about me (she said)</li>
                 <li>2. the smell of me</li>
                 <li>3. my touch</li>
-                <li>4. our music taste</li>
+                <li>4. pnd songs</li>
                 <li>5. ranting about everything</li>
                 <li>6. screaming to lyrics of music</li>
                 <li>7. dessert, cs she has a sweet tooth</li>
@@ -67,7 +85,7 @@
                 <li>10. well dressed</li>
                 <li>11. late night drives</li>
                 <li>12. she loves anime</li>
-                <li>13. coffe everyday</li>
+                <li>13. coffee everyday</li>
                 <li>14. cooking</li>
                 <li>15. her favorite movie is the diary of a princess</li>
                 <li>16. long hugs</li>
@@ -75,9 +93,9 @@
                 <li>18. letters</li>
                 <li>19. handwritten letter</li>
                 <li>20. talking about peoples days</li>
-                <li>21. flowers from me, she wants tulips now</li>
+                <li>21. flowers from me</li>
                 <li>22. guitar</li>
-                <li>23. cityy lights</li>
+                <li>23. city lights</li>
                 <li>24. making her laugh</li>
                 <li>25. our "firsts" together</li>
                 <li>26. surprise gifts</li>
@@ -145,7 +163,7 @@
                 <li>88. laughing at embarrassing moments</li>
                 <li>89. harry poter</li>
                 <li>90. go to thrifting</li>
-                <li>91. pnd songs</li>
+                <li>91. our music taste</li>
                 <li>92. taking breaks for quality</li>
                 <li>93. dark color</li>
                 <li>94. exchanging fun stories</li>
@@ -157,6 +175,27 @@
                 <li>100. nagi, jungkook. hmmm</li>
             </ol>
         </div>
+        
+        <div id="confetti-container" class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"></div>
     </div>
+
+    <script>
+        function toggleBirthdayMode() {
+            document.body.classList.toggle("birthday-mode");
+            const confettiContainer = document.getElementById('confetti-container');
+            if (document.body.classList.contains("birthday-mode")) {
+                for (let i = 0; i < 100; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    confettiContainer.appendChild(confetti);
+                }
+            } else {
+                confettiContainer.innerHTML = '';
+            }
+        }
+    </script>
 </body>
 </html>
